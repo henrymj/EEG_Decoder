@@ -839,7 +839,7 @@ class Classification:
             X_test, y_test_shuffle)
 
         self.conf_mat[isub, itime, ifold] = confusion_matrix(
-            y_test, y_pred=self.classifier.predict(X_test))
+            y_test, y_pred=self.classifier.predict(X_test), labels=np.arange(self.wrangl.num_labels))
 
         confidence_scores = self.classifier.decision_function(X_test)
         for i,ss in enumerate(set(y_test)):
