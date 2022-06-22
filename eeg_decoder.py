@@ -646,8 +646,7 @@ class Wrangler:
         '''
 
         # create index for labels from train_labels
-        labels = []
-        [labels.append(self.label_dict[k]) for k in self.train_labels]
+        labels = [self.label_dict[k] for k in self.train_labels]
         return self.select_labels(X_train_all, y_train, labels)
 
     def select_electrodes(self, xdata, electrode_subset=None):
